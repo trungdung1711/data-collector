@@ -1,5 +1,7 @@
 URI = (
-    "mongodb+srv://service_1:g8Ts*KfWFaGr~+V@salem-user-data"
+    "mongodb+srv://service_1:ONJyzoYjIJVXIQhm@salem-user-data"
     ".hclxpgb.mongodb.net/?retryWrites=true&w=majority&appName=salem-user-data"
 )
-COLLECTION = "user_data_sessions"
+
+DATABASE = "salem"
+COLLECTION = "sessions"

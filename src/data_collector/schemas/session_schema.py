@@ -1,6 +1,5 @@
-from pydantic import BaseModel, Field
-from .ObjectId import PyObjectId
 from typing import List
+from pydantic import BaseModel
 
 
 class ClickEvent(BaseModel):
@@ -13,9 +12,7 @@ class HighlightEvent(BaseModel):
     timestamp: int
 
 
-class Session(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    user_id: str
+class SessionCreate(BaseModel):
     url: str
     title: str
     startedAt: int
@@ -24,3 +21,7 @@ class Session(BaseModel):
     hightlights: List[HighlightEvent]
     clicks: List[ClickEvent]
     scrollDepth: int
+
+
+class SessionResponse(BaseModel):
+    state: int

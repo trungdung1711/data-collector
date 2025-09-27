@@ -11,4 +11,4 @@ router = APIRouter(
 
 @router.get("/")
 def get(payload: Payload = Depends(verify_token)):
-    return payload
+    return {"message": "This endpoint is private"}

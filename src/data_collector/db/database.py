@@ -3,5 +3,6 @@ from pymongo.server_api import ServerApi
 from data_collector.configs import mongo
 
 
-client = AsyncIOMotorClient(mongo.MONGO_URI, server_api=ServerApi("1"))
-database = client.get_database()
+client = AsyncIOMotorClient(mongo.URI, server_api=ServerApi("1"))
+database = client.get_database(name=mongo.DATABASE)
+collection = database.get_collection(name=mongo.COLLECTION)

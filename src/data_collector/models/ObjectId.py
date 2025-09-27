@@ -12,6 +12,10 @@ class PyObjectId(ObjectId):
             raise ValueError("Invalid ObjectId")
         return ObjectId(v)
 
+    # @classmethod
+    # def __modify_schema__(cls, field_schema):
+    #     field_schema.update(type="string")
+
     @classmethod
-    def __modify_schema__(cls, field_schema):
+    def __get_pydantic_json_schema__(cls, field_schema):
         field_schema.update(type="string")
