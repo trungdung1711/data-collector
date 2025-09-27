@@ -1,10 +1,10 @@
 from fastapi import Depends, HTTPException, status
-from jose import jwt, JWTError
-from data_collector.configs import key_cloak
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from jose import JWTError, jwt
 from jwt import PyJWKClient
-from data_collector.types import Payload
 
+from data_collector.configs import key_cloak
+from data_collector.types import Payload
 
 # fetch the public key
 jwk_client = PyJWKClient(key_cloak.JWK_URL)

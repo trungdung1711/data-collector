@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
-from data_collector.auth import verify_token
-from data_collector.types import Payload
-from data_collector.services import session_service
-from data_collector.schemas import session_schema
 
+from data_collector.auth import verify_token
+from data_collector.schemas import session_schema
+from data_collector.services import session_service
+from data_collector.types import Payload
 
 router = APIRouter(
     prefix="/api/v1/sessions",

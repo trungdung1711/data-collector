@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from data_collector.routes import private, public, session
 
+from data_collector.routes import private, public, session
 
 app = FastAPI(
     title="Data collector API",

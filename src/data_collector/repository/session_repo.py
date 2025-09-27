@@ -1,5 +1,5 @@
-from data_collector.models import Session
 from data_collector.db import collection
+from data_collector.models import Session
 
 
 class SessionRepo:

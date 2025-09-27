@@ -1,6 +1,6 @@
 from data_collector.models import Session
-from data_collector.schemas import session_schema
 from data_collector.repository.session_repo import SessionRepo
+from data_collector.schemas import session_schema
 
 
 async def create_session(

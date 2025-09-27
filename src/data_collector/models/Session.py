@@ -1,6 +1,8 @@
-from pydantic import BaseModel, Field
-from .ObjectId import PyObjectId
 from typing import List
+
+from pydantic import BaseModel, Field
+
+from .ObjectId import PyObjectId
 
 
 class ClickEvent(BaseModel):
