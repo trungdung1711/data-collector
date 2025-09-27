@@ -3,10 +3,11 @@ from jose import jwt, JWTError
 from data_collector.configs import key_cloak
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import PyJWKClient
+from data_collector.types import Payload
 
 
 # fetch the public key
-jwk_client = PyJWKClient(key_cloak.JWK_URL) 
+jwk_client = PyJWKClient(key_cloak.JWK_URL)
 
 
 def get_public_key(token: str):
@@ -20,11 +21,13 @@ def get_public_key(token: str):
 security = HTTPBearer()
 
 
-def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
+def verify_token(
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+) -> Payload:
     token = credentials.credentials
     try:
         public_key = get_public_key(token)
-        payload = jwt.decode(
+        payload: Payload = jwt.decode(
             token,
             public_key,
             algorithms=[key_cloak.ALGORITHM],

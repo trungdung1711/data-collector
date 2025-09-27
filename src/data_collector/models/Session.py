@@ -1,0 +1,26 @@
+from pydantic import BaseModel, Field
+from .ObjectId import PyObjectId
+from typing import List
+
+
+class ClickEvent(BaseModel):
+    url: str
+    timestamp: int
+
+
+class HighlightEvent(BaseModel):
+    text: str
+    timestamp: int
+
+
+class Session(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    user_id: str
+    url: str
+    title: str
+    startedAt: int
+    endedAt: int
+    durantion: int
+    hightlights: List[HighlightEvent]
+    clicks: List[ClickEvent]
+    scrollDepth: int

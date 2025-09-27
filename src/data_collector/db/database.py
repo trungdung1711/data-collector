@@ -4,4 +4,4 @@ from data_collector.configs import mongo
 
 
 client = AsyncIOMotorClient(mongo.MONGO_URI, server_api=ServerApi("1"))
-db = client[mongo.COLLECTION]
+database = client.get_database()
