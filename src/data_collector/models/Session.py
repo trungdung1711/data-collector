@@ -22,7 +22,7 @@ class Session(BaseModel):
     title: str
     startedAt: int
     endedAt: int
-    duration: int
-    hightlights: List[HighlightEvent]
+    duration: float
+    highlights: List[HighlightEvent]
     clicks: List[ClickEvent]
     scrollDepth: int

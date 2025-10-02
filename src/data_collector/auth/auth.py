@@ -25,6 +25,7 @@ def verify_token(
     credentials: HTTPAuthorizationCredentials = Depends(security),
 ) -> Payload:
     token = credentials.credentials
+
     try:
         public_key = get_public_key(token)
         payload: Payload = jwt.decode(
