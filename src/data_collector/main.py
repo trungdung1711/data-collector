@@ -1,7 +1,12 @@
-from fastapi import FastAPI
-from data_collector.routes import router
+from data_collector.configs import app
 
 
+def main():
+    import uvicorn
 
-app = FastAPI(title='Data collector')
-app.include_router(router=router, prefix='/api/v1', tags=['sessions'])
+    app_loc = "data_collector.app:app"
+    uvicorn.run(app_loc, host=app.HOST, port=app.PORT, reload=True)
+
+
+if __name__ == "__main__":
+    main()
